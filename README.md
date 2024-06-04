@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+# Sombia
+The official GitHub repo for Sombia.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is Sombia?
+Sombia is a free, privacy-first Social media network, optimized for creators. You can share (nearly) every type of content here. It's currently under construction, but we hope to open the beta soon. Want to be a part of the journey? Join our [Discord](#).
 
-Currently, two official plugins are available:
+## About this website
+The website was built with the Vite template, you can find it on their [website](https://vitejs.dev) and on their [GitHub repo](https://github.com/vitejs/vite).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to make modifications
+This repo is mainly made public to allow for Style modifications. We mainly use [SASS](http://sass-lang.com/) in this project, but feel free to use any libraries you want ([Bootstrap](http://react-bootstrap.netlify.app/) is already installed :wink:)
 
-## Expanding the ESLint configuration
+You can find all components in the [`/src/components`-directory](src/components), and their respective SASS files in the [`/src/styles/components`-directory](src/styles/components). Same goes for pages, just go to the [`/src/pages`](src/pages) and their respective [`/src/styles/pages`-directory](src/styles/pages).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How to test and publish your changes
+As our API doesn't allow request from a localhost-Host, Vite uses the example data at https://test.sombia.app/ automatically, when you are using `npm run dev`.
 
-- Configure the top-level `parserOptions` property like this:
+For now, if you want to use a custom skin in the Sombia-Application, you need to host the entire application yourself. Later, we will allow a function to inject your own stylesheets directly in the settings, and even later an store for custom skins!
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+After you've finished your changes, you can run `npm run build` to get a shipping ready version of the App!
