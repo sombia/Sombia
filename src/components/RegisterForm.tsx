@@ -10,6 +10,11 @@ function RegisterForm() {
 
     const { t } = useTranslation();
 
+    function handleRegistration() {
+        if (import.meta.env.MODE == "development") navigate("/app");
+        return;
+    }
+
     return (
         <>
             <div className="register-form">
@@ -26,7 +31,7 @@ function RegisterForm() {
                 </div>
                 <div className="fill" />
                 <button className='button switch' onClick={() => { navigate("/login"); }}>{t("register.login")}</button>
-                <button className='button submit'>{t("register.register")}</button>
+                <button className='button submit' onClick={() => { handleRegistration() }}>{t("register.register")}</button>
             </div>
         </>
     )

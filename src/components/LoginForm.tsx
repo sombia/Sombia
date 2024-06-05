@@ -10,6 +10,11 @@ function LoginForm() {
 
     const { t } = useTranslation();
 
+    function handleLogin() {
+        if (import.meta.env.MODE == "development") navigate("/app");
+        return;
+    }
+
     return (
         <>
             <div className="login-form">
@@ -26,7 +31,7 @@ function LoginForm() {
                 </div>
                 <div className="fill" />
                 <button className='button switch' onClick={() => { navigate("/register"); }}>{t("login.register")}</button>
-                <button className='button submit'>{t("login.login")}</button>
+                <button className='button submit' onClick={() => { handleLogin() }}>{t("login.login")}</button>
             </div>
         </>
     )
