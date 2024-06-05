@@ -25,7 +25,7 @@ function RegisterForm() {
                     <FaLock />
                 </div>
                 <div className="fill" />
-                <button className='button switch' onClick={() => { navigate("/register"); }}>{t("register.login")}</button>
+                <button className='button switch' onClick={() => { navigate("/login"); }}>{t("register.login")}</button>
                 <button className='button submit'>{t("register.register")}</button>
             </div>
         </>
