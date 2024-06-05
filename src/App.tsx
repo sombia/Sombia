@@ -5,6 +5,7 @@ import './styles/App.scss'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "@fontsource/poppins";
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Layout />}>
             {/* Add application routes here */}
           </Route>

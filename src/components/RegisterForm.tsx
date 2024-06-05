@@ -5,16 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import SombiaLogo from '/sombia.png?url';
 import { useTranslation } from 'react-i18next';
 
-function LoginForm() {
+function RegisterForm() {
     const navigate = useNavigate();
 
     const { t } = useTranslation();
 
     return (
         <>
-            <div className="login-form">
+            <div className="register-form">
                 <img src={SombiaLogo} alt="Sombia Logo" />
-                <h1>{t("login.login")}</h1>
+                <h1>{t("register.register")}</h1>
                 <hr />
                 <div className="input">
                     <input type="text" placeholder='Username' />
@@ -25,11 +25,11 @@ function LoginForm() {
                     <FaLock />
                 </div>
                 <div className="fill" />
-                <button className='button switch' onClick={() => { navigate("/register"); }}>{t("login.register")}</button>
-                <button className='button submit'>{t("login.login")}</button>
+                <button className='button switch' onClick={() => { navigate("/register"); }}>{t("register.login")}</button>
+                <button className='button submit'>{t("register.register")}</button>
             </div>
         </>
     )
 }
 
-export default LoginForm;
+export default RegisterForm;
