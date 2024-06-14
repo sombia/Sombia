@@ -1,0 +1,26 @@
+.screenloader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 30px;
+
+    background-color: #262626;
+
+    h1 {
+        font-size: 40px;
+
+        background: -webkit-linear-gradient(60deg, #ffea00, #ee00ff);
+        -webkit-background-clip: content-box;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
