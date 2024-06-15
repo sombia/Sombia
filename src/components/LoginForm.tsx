@@ -4,14 +4,30 @@ import { useNavigate } from 'react-router-dom';
 
 import SombiaLogo from '/sombia.png?url';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 function LoginForm() {
     const navigate = useNavigate();
 
     const { t } = useTranslation();
 
-    function handleLogin() {
-        if (import.meta.env.MODE == "development") navigate("/app");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    async function handleLogin() {
+        const data = await fetch(`${import.meta.env.VITE_API_URL}api/login`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (data.status == 200) {
+            localStorage.setItem("accessToken", await data.text());
+            navigate("/app");
+        }
         return;
     }
 
@@ -22,11 +38,11 @@ function LoginForm() {
                 <h1>{t("login.login")}</h1>
                 <hr />
                 <div className="input">
-                    <input type="text" placeholder='Username' />
+                    <input type="text" placeholder='Username' onChange={e => setUsername(e.target.value)} />
                     <FaUser />
                 </div>
                 <div className="input">
-                    <input type="password" placeholder='Password' />
+                    <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)} />
                     <FaLock />
                 </div>
                 <div className="fill" />
